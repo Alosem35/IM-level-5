@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IM 5th Year QBank (Batches 18–24)</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body data-theme="essays">
+  <!-- Top Header -->
+  <header class="app-header">
+    <div class="header-top">
+      <div class="brand">
+        <h1>Internal Medicine 2 — QBank</h1>
+        <p>Thamar University • 5th Year • Batches 18–24 (346 Questions)</p>
+      </div>
+      <div class="header-actions">
+        <div class="score-pill" id="scorePill" title="MCQ Score">
+          Score: <strong id="scoreVal">0 / 0</strong> (<span id="scorePct">0%</span>)
+        </div>
+        <button class="btn btn-ghost" id="btnShuffle" title="Shuffle Questions & Options">🔀 Shuffle: OFF</button>
+        <button class="btn btn-ghost" id="btnExport" title="Export Progress Backup">💾 Export</button>
+        <button class="btn btn-ghost" id="btnImport" title="Import Progress Backup">📂 Import</button>
+        <input type="file" id="importFile" accept=".json" style="display:none" />
+        <button class="btn btn-ghost" id="btnDark" title="Toggle Dark Mode">🌙 Dark</button>
+        <button class="btn btn-ghost" id="btnPrint" title="Print / Save as PDF">🖨️ Print</button>
+        <button class="btn btn-danger" id="btnReset" title="Reset All Progress">↺ Reset</button>
+      </div>
+    </div>
+
+    <!-- Main 4 Tabs -->
+    <nav class="main-tabs" id="mainTabs">
+      <button class="tab-btn active" data-tab="essays">📝 All Essays (Model Answers)</button>
+      <button class="tab-btn" data-tab="rheumatology">🦴 Rheumatology</button>
+      <button class="tab-btn" data-tab="neurology">🧠 Neurology</button>
+      <button class="tab-btn" data-tab="hematology">🩸 Hematology</button>
+    </nav>
+  </header>
+
+  <!-- Filters & Topic Jump Bar -->
+  <section class="controls-bar" id="controlsBar">
+    <div class="filters-row">
+      <div class="filter-group">
+        <label for="filterBatch">Batch:</label>
+        <select id="filterBatch">
+          <option value="all">All Batches</option>
+          <option value="24">Batch 24</option>
+          <option value="23">Batch 23</option>
+          <option value="22">Batch 22</option>
+          <option value="21">Batch 21</option>
+          <option value="20">Batch 20</option>
+          <option value="19">Batch 19</option>
+          <option value="18">Batch 18</option>
+        </select>
+      </div>
+
+      <div class="filter-group">
+        <label for="filterExam">Exam:</label>
+        <select id="filterExam">
+          <option value="all">All Exams</option>
+          <option value="Final">Final</option>
+          <option value="Midterm">Midterm</option>
+        </select>
+      </div>
+
+      <div class="filter-group" id="statusFilterGroup">
+        <label for="filterStatus">Status:</label>
+                <select id="filterStatus">
+          <option value="all">All Questions</option>
+          <option value="flagged">Flagged Only (⭐)</option>
+          <option value="unanswered">Unanswered</option>
+          <option value="incorrect">Incorrect Only</option>
+          <option value="reviewed">Reviewed (✓)</option>
+        </select>
+
+      </div>
+      <div class="filter-group">
+        <label for="filterTopic">Topic:</label>
+        <select id="filterTopic">
+          <option value="all">All Topics</option>
+        </select>
+      </div>
+
+      <div class="filter-group search-group">
+        <input type="text" id="searchInput" placeholder="Search questions, keywords..." />
+      </div>
+    </div>
+
+    <!-- Dynamic Topic Jump Pills -->
+    <div class="topic-nav" id="topicNav"></div>
+  </section>
+
+  <!-- Main Content Area -->
+  <main class="container" id="appContent"></main>
+
+  <!-- Data Files (Loaded Offline Without CORS Issues) -->
+  <script>
+    window.IM_DATA = {
+      rheumatology: [],
+      neurology: [],
+      hematology: []
+    };
+  </script>
+  <script src="data/rheumatology.js"></script>
+  <script src="data/neurology.js"></script>
+  <script src="data/hematology.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
